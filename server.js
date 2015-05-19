@@ -11,25 +11,20 @@ basePath = [];
 var files = [];
 var names = [];
 
-var box { 
-		  A12345:"PM_R12345",
-		  A67890:"PM_R67890"
+var box = { 
+		  A12345:"R12345",
+		  A67890:"R67890"
 		};
 
-var preNumbers ['A12345','A67890','B12345','B67890'];
-var postNumbers ['PM_R12345','PM_R67890','PM_R23456','PM_R78912'];
 
 var newName = '/Users/barnabycarter/workspace/test/PM_R123456789.rtf';
 var basePath = '/Users/barnabycarter/workspace/test/';
 
-function getNames(path) {
+function getNamesMOD(path) {
 	fs.readdir(path, function (err, files) {
   		if (err) throw err;
   			for (i = 0; i < files.length; i++) { 
-  					// console.log(files[i]);
   					
-  					//var match = pattern.test(/(A|B)[0-9]{1,9}/i);
-
   					var match = pattern.test(/[abc.rtf]/i);
 
 
@@ -54,19 +49,23 @@ function getNames(path) {
 
 
 
+function getNames(path) {
+	fs.readdir(path, function (err, files) {
+  		if (err) throw err;
+  		
+  			return files;
+
+		});
+}
+
+
+function printFiles(path) {
+	getNames(path);
+}
+
+
 // run 
 		
-getNames('/Users/barnabycarter/workspace/test');
+printFiles('/Users/barnabycarter/workspace');
 
 
-function checkName(name){
-
-	var records = [];
-
-	for (i = 0; i < records.length; i++) { 
-			
-			
-
-	}
-
-}
